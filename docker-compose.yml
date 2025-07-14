@@ -3,7 +3,10 @@ services:
 
   # Default ports : see https://www.rabbitmq.com/networking.html#ports
   rabbitmq:
-    image: rabbitmq:3
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: "admin"
+      RABBITMQ_DEFAULT_PASS: "admin" # don't use in prod, just demo
     ports:
       - "5672:5672"
       - "15692:15692"
